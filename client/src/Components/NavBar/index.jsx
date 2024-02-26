@@ -2,29 +2,49 @@ import React, { useEffect, useState } from 'react'
 import Button from '../Button'
 import navbarRouter from '../../routes/navbarRoutes'
 import { NavLink } from 'react-router-dom'
-import { SlMenu, SlClose } from "react-icons/sl";
+import { SlMenu, SlClose, SlSupport } from "react-icons/sl";
 import classNames from 'classnames';
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
+    const [windowSize, setWindowSize] = useState({
+        width: undefined,
+        height: undefined,
+    });
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth >= 1024) {
+                setOpen(false);
+            }
+        };
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     return (
         <div className='px-24 sm:px-4  2xl:px-12 3xl:px-40'>
-            <nav className=' w-full  flex items-center justify-between lg:justify-normal p-4  3xl:px-10 shadow-xl rounded-xl'>
-                <div className='flex-shrink-0 p-2 lg:p-0 xl:p-1'>
-                    <img className='block w-56  lg:hidden xl:block xl:w-60 3xl:w-80' src="/yatayLogo.png" alt="logo" />
+            <nav className=' w-full  flex items-center justify-between lg:justify-normal p-4  3xl:px-10 shadow-xl shadow-saydam rounded-xl '>
+                <div className='flex-shrink-0  p-0 md:p-2 lg:p-0 xl:p-1'>
+                    <img className='block w-40 md:w-52  lg:hidden xl:block xl:w-60 3xl:w-80' src="/yatayLogo.png" alt="logo" />
                 </div>
-                <div className={classNames(`absolute  flex flex-col gap-y-4 min-h-[50vh] px-1 py-4 bg-[#ffffff26] backdrop-blur-md  left-0 top-[-100%]  transition-all 
-            lg:static lg:min-h-fit lg:bg-transparent lg:w-full lg:flex lg:flex-row justify-center lg:items-center  
-            md:gap-x-4 2xl:gap-x-6 3xl:gap-x-8 
+                <div className={classNames(`absolute w-full flex flex-col gap-y-4 min-h-[40vh] px-1 py-4 bg-[#ffffff] backdrop-blur-md  left-0  -top-full  transition-all duration-700
+            lg:static lg:min-h-fit lg:translate-y-0 lg:bg-transparent lg:w-full lg:flex lg:flex-row justify-center lg:items-center  
+            md:gap-x-4 2xl:gap-x-6 3xl:gap-x-8 [&>*:nth-child(4)]:max-w-fit
             [&>*:nth-child(4)]:rounded-3xl [&>*:nth-child(4)]:bg-color1 
             [&>*:nth-child(4)]:py-2 [&>*:nth-child(4)]:text-[#fff] `, {
-                    "top-10": open === true,
+                    "z-50 visible transition-all  top-28 shadow-xl border pl-10  font-bold": open === true,
                 })}>
                     {navbarRouter.map((item, index) => (
-                        <NavLink key={index} to={item.path} className='relative group px-1 py-3 text-sm 2xl:text-base text-nowrap font-Roboto rounded-lg '>
-                            {item.name}
+                        <NavLink key={index} to={item.path} className='relative group px-2 py-5 hover:bg-[#efefef2d] hover:shadow-md rounded-xl lg:hover:shadow-none lg:hover:bg-transparent lg:px-1 lg:py-3 text-xs md:text-sm 3xl:text-base text-nowrap font-Roboto lg:rounded-lg '>
+                            <div className='flex items-center gap-x-4'>
+                                <span className='static lg:hidden'>{item.icon}</span>
+                                {item.name}
+                            </div>
                             {index !== 3 && (
-                                <span className="hidden lg:block lg:absolute inset-x-0 bottom-0 h-1 rounded-full bg-color1 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                                <span className="hidden  lg:block lg:absolute inset-x-0 bottom-0 h-1 rounded-full bg-color1 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
                             )}
                         </NavLink>
                     ))}
