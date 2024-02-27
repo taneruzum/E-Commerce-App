@@ -1,6 +1,13 @@
 
 const sliderText = [
     {
+        id: 5,
+        header: 'Hızlı ve Güvenilir Teslimat',
+        text: 'Siparişleriniz hızlı ve güvenilir bir şekilde adresinize teslim edilir. En kaliteli hizmeti sunarak alışveriş deneyiminizi daha da özel kılıyoruz.',
+        subInfo: 'Alt Metin',
+        imageUrl: '/sliderImages/image 5.jpg'
+    },
+    {
         id: 1,
         header: 'Sosyal Medya Etkileşimi',
         text: 'Müşterilerinizle etkileşim kurmak için sosyal medyayı kullanın. Sosyal platformlarda düzenli paylaşımlar ve interaktif içerikler, marka bilinirliğinizi artırmanın etkili bir yoludur.',
@@ -28,13 +35,7 @@ const sliderText = [
         subInfo: 'Alt Metin',
         imageUrl: '/sliderImages/image 4.jpg'
     },
-    {
-        id: 5,
-        header: 'Hızlı ve Güvenilir Teslimat',
-        text: 'Siparişleriniz hızlı ve güvenilir bir şekilde adresinize teslim edilir. En kaliteli hizmeti sunarak alışveriş deneyiminizi daha da özel kılıyoruz.',
-        subInfo: 'Alt Metin',
-        imageUrl: '/sliderImages/image 5.jpg'
-    },
+    
 ];
 
 export default sliderText;

@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+/* @layer base{
+  font-family: Arial;
+}
+@font-face {
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Arial'), local('Arial');
+  font-display: swap;
+} */
+
 body , html {
     width: 100%;
 }

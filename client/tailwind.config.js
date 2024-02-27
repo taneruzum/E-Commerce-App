@@ -32,7 +32,9 @@ export default {
       },
       colors: {
         'saydam': '#00000010',
-        'golden': '#F8BD00',
+        'saydam2':'#00000020',
+        'golden1': '#F8BD00',
+        'golden2': '#F2A93E',
         'color1': '#FF7F00',
         'color2': '#231F20',
         'color3': '#414143',

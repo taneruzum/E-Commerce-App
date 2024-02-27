@@ -3,11 +3,11 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import sliderText from '../../Constants/const';
 import CustomSlider from '../../Components/SliderText';
+import HeroSection from './heroSection';
 
 export default function HomePage() {
   return (
     <div className='w-full h-full mt-10'>
-
       <Swiper
         spaceBetween={60}
         slidesPerView={1}
@@ -29,6 +29,9 @@ export default function HomePage() {
           </SwiperSlide>
         ))}
       </Swiper>
+      <div className='mt-10 flex flex-col gap-y-10'>
+        <HeroSection />
+      </div>
     </div>
   )
 }
