@@ -4,10 +4,10 @@ import 'swiper/css';
 import sliderText from '../../Constants/const';
 import CustomSlider from '../../Components/SliderText';
 
-
 export default function HomePage() {
   return (
     <div className='w-full h-full mt-10'>
+
       <Swiper
         spaceBetween={60}
         slidesPerView={1}
@@ -28,7 +28,6 @@ export default function HomePage() {
             </svg>
           </SwiperSlide>
         ))}
-
       </Swiper>
     </div>
   )

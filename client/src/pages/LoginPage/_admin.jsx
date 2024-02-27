@@ -1,9 +1,9 @@
+
 import React from 'react'
 import { NavLink } from "react-router-dom";
-export default function LoginPage() {
+
+export default function AdminLoginPage() {
   return (
-    <div>
-      
-    </div>
+    <div>adminLogin</div>
   )
 }
