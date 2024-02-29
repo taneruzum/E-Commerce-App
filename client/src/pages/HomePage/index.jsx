@@ -29,7 +29,7 @@ export default function HomePage() {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className='mt-10 flex flex-col gap-y-10'>
+      <div className='mt-12 flex flex-col gap-y-10'>
         <HeroSection />
       </div>
     </div>
