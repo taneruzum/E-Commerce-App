@@ -7,20 +7,14 @@ const UserSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    password: {
-        type: String,
-        required: true
-    },
     email: {
         type: String,
         required: true,
         unique: true
-    },
-    role: {
+    }, password: {
         type: String,
-        enum: ['user', 'admin'],
-        default: 'user'
-    }
+        required: true
+    },
 },
     {
         timestamps: true
@@ -32,3 +26,9 @@ UserSchema.methods.matchPassword = async function (enteredPassword) {
 };
 
 const UserModel = mongoose.model('User', UserSchema);
+
+// role: {
+//     type: String,
+//     enum: ['user', 'admin'],
+//     default: 'user'
+// }

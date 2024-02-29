@@ -1,54 +1,31 @@
-const express = require('express');
 const asyncHandler = require('express-async-handler');
-const UserModel = require('./models/UserModel');
 
-const router = express.Router();
+//@desc User Registration
+//@route POST /register
+//@access PUBLİC
+const UserRegister = asyncHandler(async (req, res) => {
+    console.log("Value of body", req.body);
+    const { name, job, age } = req.body;
+    if (!name || !job || !age) {
+        res.status(400);
+        throw new Error("Tüm alan doldurulmalıdır...");
+    }
+    res.status(201).json({ message: 'New user created' });
+});
 
-// Kullanıcı Kayıt İşlemi
-router.post('/register', asyncHandler(async (req, res) => {
-  const { username, password, email } = req.body;
+//@desc User Login
+//@route POST /login
+//@access PUBLİC
+const UserLogin = asyncHandler(async (req, res) => {
+    res.status(200).json({ message: 'User logged in' });
+});
 
-  const userExists = await UserModel.findOne({ email });
+const AdminLogin = asyncHandler(async (req, res) => {
+    res.status(200).json({ message: 'Admin Login Succesfully' });
+});
 
-  if (userExists) {
-    res.status(400);
-    throw new Error('Bu e-posta adresi zaten kayıtlı');
-  }
-
-  const user = await UserModel.create({
-    username,
-    password,
-    email
-  });
-
-  if (user) {
-    res.status(201).json({
-      _id: user._id,
-      username: user.username,
-      email: user.email,
-    });
-  } else {
-    res.status(400);
-    throw new Error('Geçersiz kullanıcı verisi');
-  }
-}));
-
-// Kullanıcı Giriş İşlemi
-router.post('/login', asyncHandler(async (req, res) => {
-  const { email, password } = req.body;
-
-  const user = await UserModel.findOne({ email });
-
-  if (user && (await user.matchPassword(password))) {
-    res.json({
-      _id: user._id,
-      username: user.username,
-      email: user.email,
-    });
-  } else {
-    res.status(401);
-    throw new Error('Geçersiz e-posta veya şifre');
-  }
-}));
-
-module.exports = router;
+module.exports = {
+    UserRegister,
+    UserLogin,
+    AdminLogin
+};
