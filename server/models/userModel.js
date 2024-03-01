@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
+// const bcrypt = require('bcryptjs');
 
 const UserSchema = new mongoose.Schema({
     username: {
@@ -9,26 +9,40 @@ const UserSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: true,
+        sparse: true,
         unique: true
-    }, password: {
+    },
+    password: {
         type: String,
         required: true
     },
+    role: {
+        type: String,
+        enum: ['user', 'admin'],
+        default: 'user'
+    }
 },
     {
         timestamps: true
     }
 );
 
-UserSchema.methods.matchPassword = async function (enteredPassword) {
-    return await bcrypt.compare(enteredPassword, this.password);
-};
+// UserSchema.methods.matchPassword = async function (enteredPassword) {
+//     return await bcrypt.compare(enteredPassword, this.password);
+// };
 
-const UserModel = mongoose.model('User', UserSchema);
+UserSchema.pre('save', function (next) {
+    if (this.role === 'admin') {
+        // E-posta alanını boş bırak
+        this.email = undefined;
+    } else {
+        // E-posta alanını zorunlu yap
+        if (!this.email) {
+            return next(new Error('E-posta alanı zorunludur.'));
+        }
+    }
+    next();
+});
 
-// role: {
-//     type: String,
-//     enum: ['user', 'admin'],
-//     default: 'user'
-// }
+module.exports = mongoose.model('User', UserSchema);
+
