@@ -24,6 +24,9 @@ export default {
     },
 
     extend: {
+      backgroundImage: {
+        'login-bg': "url('/orangebg.png')",
+      },
       fontFamily: {
         'Roboto': ['Roboto', 'sans-serif'],
         'openSans': ['Open Sans', 'sans-serif'],
@@ -32,7 +35,7 @@ export default {
       },
       colors: {
         'saydam': '#00000010',
-        'saydam2':'#00000020',
+        'saydam2': '#00000020',
         'golden1': '#F8BD00',
         'golden2': '#F2A93E',
         'color1': '#FF7F00',

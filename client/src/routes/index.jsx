@@ -3,8 +3,8 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layout";
 import HomePage from "../pages/HomePage";
 import AboutPage from "../pages/AboutPage";
-import RegisterPage from "../pages/RegisterPage";
-import LoginPage from "../pages/LoginPage/_user";
+import UserRegisterPage from "../pages/RegisterPage";
+import UserLoginPage from "../pages/LoginPage/_user";
 import AdminLoginPage from "../pages/LoginPage/_admin";
 
 
@@ -29,11 +29,11 @@ const router = createBrowserRouter([
     },
     {
         path: "/register",
-        element: <RegisterPage />
+        element: <UserRegisterPage />
     },
     {
         path: "/login",
-        element: <LoginPage />,
+        element: <UserLoginPage />,
     },
     {
         path: "/admin/login",

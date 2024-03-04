@@ -22,7 +22,7 @@ export default function Navbar() {
 
     return (
         <div className='px-0 sm:px-4 2xl:px-24 3xl:px-32 '>
-            <nav className='bg-white w-full  flex items-center justify-between lg:justify-normal p-4 3xl:px-10 shadow-xl shadow-saydam rounded-xl '>
+            <nav className=' bg-[#fff] w-full  flex items-center justify-between lg:justify-normal p-4 3xl:px-10 shadow-xl shadow-saydam rounded-xl '>
                 <div className='flex-shrink-0  p-0 md:p-2 lg:p-0 xl:p-1'>
                     <img className='block w-40 md:w-52  lg:hidden xl:block xl:w-60 3xl:w-80' src="/yatayLogo.png" alt="logo" />
                 </div>
