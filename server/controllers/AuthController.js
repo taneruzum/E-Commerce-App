@@ -59,7 +59,7 @@ const UserLogin = asyncHandler(async (req, res) => {
 
         },
             process.env.ACCESS_TOKEN_SECRET,
-            { expiresIn: "1m" }
+            { expiresIn: "10m" }
         )
         res.status(200).json(accessToken);
     } else {
@@ -69,6 +69,16 @@ const UserLogin = asyncHandler(async (req, res) => {
     }
 
 });
+
+//@desc Current User Profile
+//@route GET /user/profile
+//@access PRIVATE
+const currentUserProfile = asyncHandler(async (req, res) => {
+
+    res.json(req.user)
+
+});
+
 
 //@desc Admin Login
 //@route POST /login
@@ -80,5 +90,6 @@ const AdminLogin = asyncHandler(async (req, res) => {
 module.exports = {
     UserRegister,
     UserLogin,
-    AdminLogin
+    AdminLogin,
+    currentUserProfile
 };

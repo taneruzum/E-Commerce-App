@@ -1,10 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const { UserRegister, UserLogin } = require('../controllers/AuthController')
+const validateToken = require('../middlewares/authenticateToken');
+const { UserRegister, UserLogin, currentUserProfile } = require('../controllers/AuthController')
 
 // DEFAULT ROUTES
-router.route('/register').post(UserRegister);
+router.post('/register', UserRegister);
+router.post('/login', UserLogin);
+router.get('/user/profile', validateToken, currentUserProfile);
 
-router.route('/login').post(UserLogin);
 
 module.exports = router;
