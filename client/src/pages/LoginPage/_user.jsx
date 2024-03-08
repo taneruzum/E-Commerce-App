@@ -26,8 +26,6 @@ export default function UserLoginPage() {
               <span onClick={() => setVisibility((prev) => !prev)} className='absolute right-4 p-1 bg-color1 rounded-full '><IoEye size={24} color='white' /></span> :
               <span onClick={() => setVisibility((prev) => !prev)} className='absolute right-4 p-1 bg-color1 rounded-full '><IoEyeOff size={24} color='white' /></span>}
           </div>
-
-
           <button className=' w-full h-12 font-bold text-2xl text-[#fff] bg-color1 text-nowrap rounded-full'>
             Giriş Yap
           </button>

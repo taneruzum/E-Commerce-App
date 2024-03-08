@@ -13,6 +13,8 @@ const footerLinks = [
         link2: 'Career',
         link3: 'Contact',
         link4: 'Sustainability',
+        googleBadge: '/badges/google-play-badge.png',
+        appBadge: '/badges/app-store-badge.svg'
     },
     {
         title: 'KAMPANYALAR',
@@ -20,6 +22,12 @@ const footerLinks = [
         link2: 'Elit Üyelik',
         link3: 'Hediyelik Fikirler',
         link4: 'Fırsatlar',
+        icons: {
+            icon1: "/socialMedia-icons/logo-facebook.png",
+            icon2: "/socialMedia-icons/logo-instagram.png",
+            icon3: "/socialMedia-icons/logo-twitter.png",
+            icon4: "/socialMedia-icons/logo-youtube.png"
+        }
     },
     {
         title: 'YARDIM',
