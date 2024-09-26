@@ -43,7 +43,6 @@ export default {
         'color2': '#231F20',
         'color3': '#414143',
         'color4': '#818286'
-
       }
     },
 
