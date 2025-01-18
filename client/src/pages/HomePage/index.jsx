@@ -12,7 +12,7 @@ export default function HomePage() {
         spaceBetween={60}
         slidesPerView={1}
         loop={true}
-        className='flex items-center'
+        className='!xl:max-h-[950px] flex items-center'
       >
         {sliderText.map(item => (
           <SwiperSlide key={item.id}>
